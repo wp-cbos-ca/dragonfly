@@ -608,6 +608,10 @@ nav .hover-highlight:hover {
 	display: inline-block;
 }
 
+iframe {
+	max-width: 100%;
+}
+
 /* helper classes (from Genericons...) */
 
 .rotate-90 {
@@ -696,19 +700,6 @@ nav .hover-highlight:hover {
 
 @media screen and (max-width: 1366px) {
     
-/*    
-    #site-header {
-    	display: none;
-    }
-    
-    #site-footer {
-    	display: none;
-    }
-    
-    #page-title {
-    	display: none;
-    }
-    
     .laptop-hide {
         display: none;
     }
@@ -717,36 +708,7 @@ nav .hover-highlight:hover {
     	display: block; 
     }
     
-    .video #frame {
-    	bottom: 42px;
-    }
-*/    
-    .handle.top {
-		top: 4px;
-	}
-	
-	.handle.bottom {
-		bottom: -42px;
-	}
-	
-	.sidebar > .inner {
-    	bottom: 60px;
-    }
-    
-    .tap-grid {
-    	height: 60px;
-    }
-    
-    .tap-grid .unit {
-    	height: 60px;
-    	line-height: 60px;
-    }
-    
-	.tap-grid .size1of2.icon {
-		width: 20%;	
-	}
-	
-	.columns {
+ 	.columns {
 	    -webkit-column-count: 3;
 	    -moz-column-count: 3;
 	    column-count: 3;

@@ -3,7 +3,7 @@
 list( $start, $sec ) = explode( " ", microtime() );
 
 DEFINE( 'DRAGONFLY', true );
-DEFINE( 'DEVELOPMENT', true );
+DEFINE( 'DEVELOPMENT', false );
 DEFINE( 'PUBLISH', false );
 
 require_once( 'dragonfly-engine.php' );
@@ -19,7 +19,7 @@ $str .= '<head>' . PHP_EOL;
 $str .= sprintf( '<title>%s</title>%s', $page['name'], PHP_EOL );
 $str .= '<meta http-equiv="Content-Type" content="text/html;charset=utf-8">' . PHP_EOL;
 $str .= DEVELOPMENT ? sprintf( '<link rel=stylesheet type="text/css" href="css/style.css%s">%s', $style_time, PHP_EOL ) : '';
-$str .= ! DEVELOPMENT ? '<style type="text/css">'. file_get_contents( 'css/style.min.css' ) . '</style>' : '';
+$str .= ! DEVELOPMENT ? '<style type="text/css">'. file_get_contents( 'css/style.min.css' ) . '</style>' . PHP_EOL : '';
 $str .= '</head>' . PHP_EOL;
 $str .= '<body>' . PHP_EOL;
 $str .= '<div id="corral">' . PHP_EOL;
