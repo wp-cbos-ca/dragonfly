@@ -1,0 +1,39 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^[a-z]{1,12}.[a-z]{1,3}$ [NC]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # RewriteCond %{HTTP:X-Forwarded-Proto} =http
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+<ifModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/xml text/css text/plain
+</ifModule>
+ <ifModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/html "access plus 10 days"
+  </ifModule>
+ <ifModule mod_headers.c>
+  <filesMatch "\.(png)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(css)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(css|gz)$">
+    Header append Vary: Accept-Encoding
+  </filesMatch>
+</ifModule>
+FileETag None
+AddCharset UTF-8 .html
+AddType text/cache-manifest .appcache
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^([a-zA-Z0-9-]+)([/]*)\.html$  index.php
+</IfModule>
